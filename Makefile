@@ -8,7 +8,6 @@ CC            = gcc
 CFLAGS        = -m64 -pipe -O3 -Wall -W -D_REENTRANT
 LFLAGS        = -m64 -Wl,-O3
 LIBS          = -lhidapi-libusb
-DEL_FILE      = rm -f
 INSTALLPREFIX = ~/.local/bin
 
 ####### Files
@@ -16,8 +15,7 @@ INC_DIR       = src
 INC_FILE      = msiklm.h
 
 SRC_DIR       = src
-SRC_FILE      = main.c \
-                msiklm.c
+SRC_FILE      = main.c msiklm.c
 
 OBJ_DIR       = .obj
 OBJ_FILE      = $(SRC_FILE:.c=.o)
@@ -41,18 +39,18 @@ $(TARGET): $(OBJ)
 	$(CC) $(LFLAGS) -o $(TARGET) $(OBJ) $(LIBS)
 
 clean:
-	$(DEL_FILE) $(OBJ)
-	$(DEL_FILE) -r $(OBJ_DIR)
+	@rm -fv $(OBJ)
+	@rm -fv -r $(OBJ_DIR)
 
 delete: clean
-	$(DEL_FILE) $(TARGET)
+	@rm -fv $(TARGET)
 
 install: all
 	@mv -v $(TARGET) $(INSTALLPREFIX)/$(TARGET)
 	@chmod 755 $(INSTALLPREFIX)/$(TARGET)
 
 uninstall:
-	@rm -v $(INSTALLPREFIX)/$(TARGET)
+	@rm -fv $(INSTALLPREFIX)/$(TARGET)
 
 re: delete all
 
