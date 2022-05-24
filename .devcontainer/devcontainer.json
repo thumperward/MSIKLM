@@ -8,5 +8,6 @@
 		"ms-vscode.makefile-tools",
 		"ms-vscode.cpptools-extension-pack",
 		"DavidAnson.vscode-markdownlint"
-	]
+	],
+	"postCreateCommand": "mkdir -p ~/.local/bin"
 }

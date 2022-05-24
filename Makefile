@@ -9,7 +9,7 @@ CFLAGS        = -m64 -pipe -O3 -Wall -W -D_REENTRANT
 LFLAGS        = -m64 -Wl,-O3
 LIBS          = -lhidapi-libusb
 DEL_FILE      = rm -f
-INSTALLPREFIX = /usr/local/bin
+INSTALLPREFIX = ~/.local/bin
 
 ####### Files
 INC_DIR       = src
@@ -48,8 +48,11 @@ delete: clean
 	$(DEL_FILE) $(TARGET)
 
 install: all
-	@cp -v $(TARGET) $(INSTALLPREFIX)/$(TARGET)
+	@mv -v $(TARGET) $(INSTALLPREFIX)/$(TARGET)
 	@chmod 755 $(INSTALLPREFIX)/$(TARGET)
+
+uninstall:
+	@rm -v $(INSTALLPREFIX)/$(TARGET)
 
 re: delete all
 
