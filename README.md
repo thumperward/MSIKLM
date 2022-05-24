@@ -36,7 +36,7 @@ Run `make uninstall` to remove the tool.
 To run the tool when you log in, add the following to your `~/.profile`:
 
 ```sh
-msiklm red,white,blue
+msiklm red,white,blue,sky,purple,blue,yellow
 ```
 
 ## Distribution
