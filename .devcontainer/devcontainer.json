@@ -6,6 +6,7 @@
 	"remoteUser": "vscode",
 	"extensions": [
 		"ms-vscode.makefile-tools",
-		"ms-vscode.cpptools-extension-pack"
+		"ms-vscode.cpptools-extension-pack",
+		"DavidAnson.vscode-markdownlint"
 	]
 }
